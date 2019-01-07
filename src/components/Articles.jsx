@@ -8,17 +8,19 @@ class Articles extends Component {
   render() {
     const { articles } = this.state;
     return (
-      <Fragment>
-      <div>
+       <div>
         <ul>
         
          { articles.map(article => {
-          return <li key={article.article_id}>
+          return <Fragment><li key={article.article_id}>
               <Link to={`/${article.article_id}`}>{article.title}</Link></li>
+              <span>Votes:    {article.votes}</span>
+              <span>Created by:    {article.username}</span>
+              </Fragment>
          })}
        </ul>
     </div>
-     </Fragment>
+     
     );
   }
 
