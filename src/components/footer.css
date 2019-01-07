@@ -2,5 +2,6 @@ footer {
   grid-area: footer;
   display: flex;
   justify-content: center;
-  background-color: green;
-}
+  border-style: solid;
+  border-width: 1px;
+  }
