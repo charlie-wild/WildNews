@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 1fr 1fr 7fr 1fr;
+  grid-template-columns: 1fr 1fr 3fr 1fr;
+  grid-template-areas: 'header header header header' 
+  'navbar navbar navbar navbar'
+  'content content content sidebar'
+  'footer footer footer footer';
 }
 
 

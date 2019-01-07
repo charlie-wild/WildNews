@@ -1,0 +1,5 @@
+.content {
+  grid-area: content;
+  text-align: center;
+  background-color: peru
+}

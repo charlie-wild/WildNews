@@ -1,5 +1,6 @@
 import React from 'react';
+import './header.css'
 
-const Header = () => <h1>NC News</h1>;
+const Header = () => <header><h1>NC News</h1></header>;
 
 export default Header;
