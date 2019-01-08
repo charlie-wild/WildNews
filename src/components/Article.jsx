@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import moment from 'moment';
 import * as api from './api';
 import './article.css'
 
@@ -16,13 +17,16 @@ class Article extends Component {
         <span><button>Upvote</button></span>
         <span><button>Downvote</button></span>
         <em><p>Created by: {article.author}</p></em>
+        <em><p>Created at: {moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}</p></em>
         <h4>Votes: {article.votes}</h4>
         <p>{article.body}</p>
         <ul>
           { comments.map(comment => {
             return <Fragment><li key={comment.comment_id}>{comment.body}</li>
             <span><button>Upvote</button><button>Downvote</button>Votes: {comment.votes}</span>
-            <span>Created: {comment.created_at}</span>
+            <span>Created: {
+              moment(comment.created_at).format('MMMM Do YYYY, h:mm:ss a')
+            }</span>
             <span>Author: {comment.author}</span>
           </Fragment>
           })}

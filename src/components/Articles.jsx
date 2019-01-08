@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {Link} from '@reach/router';
+import moment from 'moment';
 import * as api from './api';
 import './articles.css';
 
@@ -15,6 +16,7 @@ class Articles extends Component {
               <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>
               <span>Votes:{article.votes}</span>
               <span>Created by:{article.username}</span>
+              <span>Created: {moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}</span>
               </Fragment>
           })}
       </ul>
