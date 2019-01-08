@@ -1,0 +1,12 @@
+.loginPage {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  
+}
+
+button {
+  border-radius: 30%;
+}
+

@@ -8,14 +8,19 @@ import Article from './components/Article';
 import User from './components/User';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
+import Auth from './components/Auth';
 
 
 
 class App extends Component {
+  state = {
+    user: {}
+  }
   render() {
     return (
       <div className="App">
           <Header/>
+        <Auth user={this.state.user} login={this.Login}>
           <Navbar/>
           <Sidebar/>
         <Router className="content">
@@ -24,9 +29,16 @@ class App extends Component {
           <Article path="/articles/:article_id"/>
           <User path="/users/:username"/>
       </Router>
+        </Auth>
           <Footer/> 
       </div>
     );
+  }
+
+  Login = user => {
+    this.setState({
+      user
+    })
   }
 }
 
