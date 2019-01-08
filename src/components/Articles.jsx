@@ -8,32 +8,41 @@ class Articles extends Component {
   render() {
     const { articles } = this.state;
     return (
-       <div>
+      <div>
         <ul>
-        
-         { articles.map(article => {
+            { articles.map(article => {
           return <Fragment><li key={article.article_id}>
-              <Link to={`/${article.article_id}`}>{article.title}</Link></li>
-              <span>Votes:    {article.votes}</span>
-              <span>Created by:    {article.username}</span>
+              <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>
+              <span>Votes:{article.votes}</span>
+              <span>Created by:{article.username}</span>
               </Fragment>
-         })}
-       </ul>
+          })}
+      </ul>
     </div>
-     
+    
     );
   }
 
 componentDidMount() {
-  this.fetchArticles();
+  this.fetchArticles(this.props.topic);
 }
 
 fetchArticles = () => {
-  api.getArticles().then((articles) => {
+  api.getArticles(this.props.topic).then((articles) => {
     this.setState({ articles })
   })
 }
-   
+
+componentDidUpdate(prevProps, prevState) {
+    const {
+      topic
+    } = this.props
+    if (topic !== prevProps.topic) {
+      return this.fetchArticles(topic)
+    }
+  
+}
+
 }
 
 export default Articles;

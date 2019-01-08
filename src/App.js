@@ -15,17 +15,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-    
           <Header/>
           <Navbar/>
           <Logout/>
         <Router className="content">
           <Articles path="/"/>
+          <Articles path="/:topic"/>
           <Article path="/articles/:article_id"/>
           <User path="/users/:username"/>
-       </Router>
-          <Footer/>
-     
+      </Router>
+          <Footer/> 
       </div>
     );
   }
