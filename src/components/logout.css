@@ -1,0 +1,6 @@
+.logout {
+   grid-area: logout;
+   text-align: center;
+   border-style: solid;
+   border-width: 1px;
+}
