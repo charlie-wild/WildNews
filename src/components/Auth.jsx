@@ -4,7 +4,7 @@ import './auth.css'
 
 class Auth extends Component {
     state = {
-      username: '',
+      username: 'weegembump',
       failedLogin: false
     }
     

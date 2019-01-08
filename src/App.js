@@ -27,7 +27,7 @@ class App extends Component {
           <Articles path="/"/>
           <Articles path="/:topic"/>
           <Article path="/articles/:article_id"/>
-          <User path="/users/:username"/>
+          <User user={this.state.user}path="/users/:username"/>
       </Router>
         </Auth>
           <Footer/> 
@@ -35,10 +35,17 @@ class App extends Component {
     );
   }
 
+  componentDidMount() {
+    if(localStorage.getItem('user') && !this.state.user.username) {
+      this.setState({user: JSON.parse(localStorage.getItem('user'))});
+    }
+  }
+
   Login = user => {
     this.setState({
       user
     })
+    localStorage.setItem('user', JSON.stringify(user));
   }
 }
 
