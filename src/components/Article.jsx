@@ -13,13 +13,15 @@ class Article extends Component {
       <div className="content">
        <Fragment>
         <h2>{article.title}</h2>
+        <span><button>Upvote</button></span>
+        <span><button>Downvote</button></span>
         <em><p>Created by: {article.author}</p></em>
         <h4>Votes: {article.votes}</h4>
         <p>{article.body}</p>
         <ul>
           { comments.map(comment => {
             return <Fragment><li key={comment.comment_id}>{comment.body}</li>
-            <span>Votes: {comment.votes}</span>
+            <span><button>Upvote</button><button>Downvote</button>Votes: {comment.votes}</span>
             <span>Created: {comment.created_at}</span>
             <span>Author: {comment.author}</span>
           </Fragment>
