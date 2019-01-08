@@ -8,12 +8,23 @@ class Article extends Component {
     comments: []
   }
   render() {
-    const { article } = this.state;
+    const { article, comments } = this.state;
     return (
       <div className="content">
        <Fragment>
         <h2>{article.title}</h2>
+        <em><p>Created by: {article.author}</p></em>
+        <h4>Votes: {article.votes}</h4>
         <p>{article.body}</p>
+        <ul>
+          { comments.map(comment => {
+            return <Fragment><li key={comment.comment_id}>{comment.body}</li>
+            <span>Votes: {comment.votes}</span>
+            <span>Created: {comment.created_at}</span>
+            <span>Author: {comment.author}</span>
+          </Fragment>
+          })}
+        </ul>
        </Fragment>
       </div>
     );
@@ -21,13 +32,20 @@ class Article extends Component {
 
 
 componentDidMount() {
-  this.fetchArticle(this.props.article_id)
+  this.fetchArticle(this.props.article_id);
+  this.fetchComments(this.props.comment_id);
 }
 
 
 fetchArticle = () => {
   api.getArticleById(this.props.article_id).then((article) => {
-    this.setState({ article })
+    this.setState({ article });
+  })
+}
+
+fetchComments = () => {
+  api.getArticleComments(this.props.article_id).then((comments) => {
+    this.setState({ comments });
   })
 }
 
