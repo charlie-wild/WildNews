@@ -39,6 +39,8 @@ class AddArticle extends Component {
     .then(() => {
       alert('New Article Added!');
       
+    }).catch((err) => {
+      alert('Error in submission!')
     })
 
   }
