@@ -14,9 +14,9 @@ class AddTopic extends Component {
         <h2>Add A Topic</h2>
         <form onSubmit={this.addTopic}>
           <label htmlFor='topic_title'>Topic:</label>
-          <input type='text' id='slug' />
+          <input type='text' id='slug' required />
           <label htmlFor='description'>Description:</label>
-          <input type='text' id='description' />
+          <input type='text' id='description' required />
           <button>Add Topic</button>
         </form>
         
@@ -34,7 +34,7 @@ class AddTopic extends Component {
         },
       },
       () => api.postTopic(this.state.newTopic).then(() => 
-      { alert('Topic Added!');
+      { alert('Topic Added Successfully!');
         this.setState({newTopic: {
           slug: '',
           description: ''

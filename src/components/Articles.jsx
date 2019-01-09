@@ -12,7 +12,7 @@ class Articles extends Component {
       <div>
         <ul>
             { articles.map(article => {
-          return <Fragment><li key={article.article_id}>
+          return <Fragment key={article.article_id}><li>
               <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>
               <span>Votes:{article.votes}</span>
               <span>Created by:{article.username}</span>
@@ -39,7 +39,7 @@ componentDidUpdate(prevProps, prevState) {
     const {
       topic
     } = this.props
-    if (topic !== prevProps.topic) {
+    if (topic !== prevProps.topic && this.state.articles.length !== 0)  {
       return this.fetchArticles(topic)
     }
   

@@ -39,6 +39,6 @@ export const postTopic = async newTopic => {
 }
 
 export const postArticle = async (topic, newArticle) => {
-  const { data } = await axios.post(`${BASE_URL}/topics/${topic}/articles`)
+  const { data } = await axios.post(`${BASE_URL}/topics/${topic}/articles`, newArticle)
   return data.article;
 }

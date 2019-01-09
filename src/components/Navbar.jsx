@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {Link} from '@reach/router';
-import * as api from './api';
 import './navbar.css'
 
 
 class Navbar extends Component {
-  state = { topics : [] };
-  render() {
-    const { topics } = this.state;
+    render() {
+    const { topics } = this.props;
     return (
       <div className="navbar">
         {topics.map(topic => {
@@ -19,17 +17,6 @@ class Navbar extends Component {
     
     );
   }
-
-componentDidMount() {
-  this.fetchTopics();
-}
-
-
-fetchTopics = () => {
-  api.getTopics().then((topics) => {
-    this.setState({ topics })
-  })
-}
 
 
 }
