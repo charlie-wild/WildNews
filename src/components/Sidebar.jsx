@@ -12,7 +12,7 @@ class Sidebar extends Component {
     return (
       <div className="sidebar">
          <p>You are logged in as : {user.username}</p>
-         <img src={user.avatar_url} alt="user avatar"/>
+         <img className='side_avatar' src={user.avatar_url} alt="user avatar"/>
          <p>Visit your profile page: <Link to={`/users/${user.username}`}>Profile</Link></p>
          <button onClick={logout}>Logout</button>
 

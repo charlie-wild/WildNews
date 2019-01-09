@@ -15,7 +15,7 @@ class User extends Component {
       <div>
       <Fragment>
         <h2>{userPageInfo.username}</h2>
-        <img src={userPageInfo.avatar_url} alt="user avatar"/>
+        <img className='user_avatar' src={userPageInfo.avatar_url} alt="user avatar"/>
         <p>User Articles</p>
         <ul>
           { userArticles.map(article => {
