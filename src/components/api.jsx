@@ -33,4 +33,12 @@ export const getComments = async () => {
   return data.comments;
 }
 
+export const postTopic = async newTopic => {
+  const { data } = await axios.post(`${BASE_URL}/topics`, newTopic)
+  return data.topic;
+}
 
+export const postArticle = async (topic, newArticle) => {
+  const { data } = await axios.post(`${BASE_URL}/topics/${topic}/articles`)
+  return data.article;
+}

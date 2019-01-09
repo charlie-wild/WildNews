@@ -6,13 +6,15 @@ import './article.css'
 class Article extends Component {
   state = {
     article: {},
-    comments: []
+    comments: [],
+    isLoaded: false
   }
   render() {
     const { article, comments } = this.state;
     return (
       <div className="content">
        <Fragment>
+        {!this.state.isLoaded && <p>Loading...</p>}  
         <h2>{article.title}</h2>
         <span><button>Upvote</button></span>
         <span><button>Downvote</button></span>
@@ -38,6 +40,7 @@ class Article extends Component {
 
 
 componentDidMount() {
+  this.setState({isLoaded: true})
   this.fetchArticle(this.props.article_id);
   this.fetchComments(this.props.comment_id);
 }
