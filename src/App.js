@@ -20,14 +20,14 @@ class App extends Component {
     return (
       <div className="App">
           <Header/>
-        <Auth user={this.state.user} login={this.Login}>
+        <Auth user={this.state.user} login={this.login}>
           <Navbar/>
-          <Sidebar/>
+          <Sidebar user={this.state.user} logout={this.logout}/>
         <Router className="content">
           <Articles path="/"/>
           <Articles path="/:topic"/>
           <Article path="/articles/:article_id"/>
-          <User user={this.state.user}path="/users/:username"/>
+          <User user={this.state.user} path="/users/:username"/>
       </Router>
         </Auth>
           <Footer/> 
@@ -41,11 +41,18 @@ class App extends Component {
     }
   }
 
-  Login = user => {
+  login = user => {
     this.setState({
       user
     })
     localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  logout = () => {
+    this.setState({
+      user: {}
+    })
+    localStorage.clear();
   }
 }
 
