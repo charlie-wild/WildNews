@@ -11,7 +11,7 @@ class Articles extends Component {
     const { articles } = this.state;
     return (
       <div>
-      {articles.length > 1 && <h2>{articles[0].topic}</h2>}
+      {this.props.topic && <h2>{this.props.topic}</h2>}
         <ul>
         {articles.length < 1 && <h2>Loading...</h2>}
             { articles.map(article => {

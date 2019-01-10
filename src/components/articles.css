@@ -1,8 +1,6 @@
 .content {
   grid-area: content;
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
 }
 
 span {
