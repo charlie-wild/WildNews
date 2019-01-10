@@ -29,7 +29,7 @@ class App extends Component {
           <Sidebar user={this.state.user} logout={this.logout}/>
         <Router className="content">
           <Articles path="/"/>
-          <Articles path="/:topic"/>
+          <Articles user={this.state.user} path="/:topic"/>
           <Article user={this.state.user} path="/articles/:article_id"/>
           <AddTopic path='/create_topic'/>
           <AddArticle user={this.state.user} topics={this.state.topics} path='/create_article' />
