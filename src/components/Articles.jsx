@@ -12,7 +12,7 @@ class Articles extends Component {
     return (
       <div>
         <ul>
-        {articles.length < 1 && <h2>No articles in this topic!</h2>}
+        {articles.length < 1 && <h2>Loading...</h2>}
             { articles.map(article => {
           return <Fragment key={article.article_id}><li>
               <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>

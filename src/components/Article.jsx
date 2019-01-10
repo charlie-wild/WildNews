@@ -22,11 +22,12 @@ class Article extends Component {
         <Fragment>
         {!this.state.isLoaded && <p>Loading...</p>}  
         <h2>{article.title}</h2>
+        <p>Votes: {article.votes}</p>
         {this.props.user.user_id === this.state.article.user_id && <DeleteArticle article_id={this.state.article.article_id}/>}
         <em><p>Created by: {article.author}</p></em>
         <em><p>Created at: {moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}</p></em>
         <p>{article.body}</p>
-        <AddComment user={this.props.user} article_id={this.props.article_id}/>
+        <AddComment postNewComment={this.postNewComment} user={this.props.user} article_id={this.props.article_id}/>
         <ul>
           { comments.map(comment => {
             return <Fragment key={comment.comment_id}><li>{comment.body}</li>
@@ -63,6 +64,21 @@ fetchComments = () => {
     this.setState({ comments });
   })
 }
+
+postNewComment = (newComment) => {
+  this.setState({
+    comments: [newComment, ...this.state.comments]
+  })
+}
+
+componentDidUpdate(prevProps, prevState) {
+  const { comments } = this.state;
+  if (comments !== prevState.comments) {
+    return this.fetchComments();
+  }
+}
+
+
 
 
 }
