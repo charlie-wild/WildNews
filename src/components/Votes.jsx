@@ -28,6 +28,8 @@ class Votes extends Component {
     })
     this.setState(state => ({ voteChange: state.voteChange + increment}))
   }
+
+  
 }
 
 export default Votes;

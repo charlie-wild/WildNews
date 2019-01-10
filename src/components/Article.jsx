@@ -3,7 +3,7 @@ import moment from 'moment';
 import * as api from './api';
 import './article.css'
 import AddComment from './AddComment';
-import Votes from './Votes'
+import CommentVotes from './CommentVotes';
 import DeleteComment from './DeleteComment';
 import DeleteArticle from './DeleteArticle';
 
@@ -31,7 +31,7 @@ class Article extends Component {
         <ul>
           { comments.map(comment => {
             return <Fragment key={comment.comment_id}><li>{comment.body}</li>
-            <Votes article_id={article.article_id}votes={comment.votes}/>
+            <CommentVotes comment_id={comment.comment_id} article_id={article.article_id}votes={comment.votes}/>
             <span>Created: {
               moment(comment.created_at).format('MMMM Do YYYY, h:mm:ss a')
             }</span>
@@ -71,12 +71,7 @@ postNewComment = (newComment) => {
   })
 }
 
-componentDidUpdate(prevProps, prevState) {
-  const { comments } = this.state;
-  if (comments !== prevState.comments) {
-    return this.fetchComments();
-  }
-}
+
 
 
 

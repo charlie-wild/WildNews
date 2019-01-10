@@ -55,7 +55,12 @@ export const postComment = async (article_id, newComment) => {
 
 export const vote = async (article_id, votes) => {
   const { data } = await axios.patch(`${BASE_URL}/articles/${article_id}`, votes)
-  return data.comment;
+  return data.votes;
+}
+
+export const voteComment = async (article_id, comment_id, votes) => {
+  const { data } = await axios.patch(`${BASE_URL}/articles/${article_id}/comments/${comment_id}`, votes)
+  return data.votes;
 }
 
 export const deleteArticle = async article_id => {

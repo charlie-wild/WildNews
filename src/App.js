@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
           <Header/>
         <Auth user={this.state.user} login={this.login}>
-          <Navbar topics={this.state.topics}/>
+          <Navbar topics={this.state.topics} user={this.state.user}/>
           <Sidebar user={this.state.user} logout={this.logout}/>
         <Router className="content">
           <Articles path="/"/>
