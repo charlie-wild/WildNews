@@ -10,8 +10,14 @@ export const getArticles = async TOPIC => {
   const URL = TOPIC ? `${BASE_URL}/topics/${TOPIC}/articles` : `${BASE_URL}/articles`
   const { data } = await axios.get(URL);
   return data.articles;
-
 }
+
+export const changePage = async (page, TOPIC) => {
+  const URL = TOPIC ? `${BASE_URL}/topics/${TOPIC}/articles?p=${page}` : `${BASE_URL}/articles?p=${page}`
+  const { data } = await axios.get(URL);
+  return data.articles;
+}
+
 
 export const getArticleById = async article_id => {
   const { data } = await axios.get(`${BASE_URL}/articles/${article_id}`);

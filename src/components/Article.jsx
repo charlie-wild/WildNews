@@ -22,7 +22,6 @@ class Article extends Component {
         <Fragment>
         {!this.state.isLoaded && <p>Loading...</p>}  
         <h2>{article.title}</h2>
-        <p>Votes: {article.votes}</p>
         {this.props.user.user_id === this.state.article.user_id && <DeleteArticle article_id={this.state.article.article_id}/>}
         <em><p>Created by: {article.author}</p></em>
         <em><p>Created at: {moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}</p></em>

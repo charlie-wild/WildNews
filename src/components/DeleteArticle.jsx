@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { navigate } from '@reach/router';
 import * as api from './api';
 
 class DeleteArticle extends Component {
@@ -16,9 +17,9 @@ class DeleteArticle extends Component {
   }
 
   handleClick = () => {
-    this.setState({deletedArticleTopic: this.props.article.topic})
-     api.deleteArticle(this.props.article_id).then(() => {
-      alert('article deleted!');
+      api.deleteArticle(this.props.article_id).then(() => {
+      alert('article deleted!')
+      navigate('/');
     })
     
   }

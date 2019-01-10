@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as api from './api'
+import { navigate } from '@reach/router';
 
 class AddArticle extends Component {
   state = {
@@ -38,6 +39,8 @@ class AddArticle extends Component {
     api.postArticle(topic, { title, body, user_id  })
     .then(() => {
       alert('New Article Added!');
+      navigate(`/${topic}`);
+
       
     }).catch((err) => {
       alert('Error in submission!')

@@ -1,19 +1,25 @@
 import React, { Component, Fragment } from 'react';
-import {Link} from '@reach/router';
-import Votes from './Votes'
+import {Link, navigate } from '@reach/router';
+import Votes from './Votes';
 import moment from 'moment';
 import * as api from './api';
 import './articles.css';
 
+
 class Articles extends Component {
-  state = { articles: [] }
+  state = { 
+    articles: [],
+    isLoading: true,
+    page: 1,
+    }
   render() {
     const { articles } = this.state;
     return (
       <div>
       {this.props.topic && <h2>{this.props.topic}</h2>}
         <ul>
-        {articles.length < 1 && <h2>Loading...</h2>}
+
+        {this.state.isLoading && <h2>Loading...</h2>}
             { articles.map(article => {
           return <Fragment key={article.article_id}><li>
               <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>
@@ -21,21 +27,29 @@ class Articles extends Component {
               <span>Created by:{article.username}</span>
               <span>Created: {moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}</span>
               </Fragment>
-          })}
+          })}<br/>
+            {this.state.page > 1 && <button onClick={this.pageDown}>Previous Page</button>}
+        <button onClick={this.pageUp}>Next Page</button>
       </ul>
+      
     </div>
     
     );
   }
 
 componentDidMount() {
+  this.setState({isLoading: false});
+  this.state.page > 1 ? this.pagginate() :
   this.fetchArticles(this.props.topic);
+  
 }
 
 fetchArticles = () => {
   api.getArticles(this.props.topic).then((articles) => {
     this.setState({ articles })
-  })
+  }).catch(err => {
+    navigate('/404', { replace : true })
+  }) 
 }
 
 componentDidUpdate(prevProps, prevState) {
@@ -48,6 +62,22 @@ componentDidUpdate(prevProps, prevState) {
   
 }
 
+ pagginate = () => {
+    api.changePage(this.state.page, this.props.topic)
+    .then((articles) => this.setState({ articles }))
+  }
+
+  pageDown = () => {
+    this.setState({page: this.state.page -1 }, () => {
+          this.pagginate();
+    })
+  }
+
+  pageUp = () => {
+    this.setState({page: this.state.page +1}, () => {
+          this.pagginate();
+      })
+  }
 }
 
 export default Articles;
