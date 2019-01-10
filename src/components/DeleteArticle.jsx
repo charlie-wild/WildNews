@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import { navigate } from '@reach/router';
 
 import * as api from './api';
 
 class DeleteArticle extends Component {
   state = {
-    clicked: false
+    clicked: false,
+    deletedArticleTopic: ''
   }
   render() {
     
@@ -16,8 +18,12 @@ class DeleteArticle extends Component {
   }
 
   handleClick = () => {
-    api.deleteArticle(this.props.article_id);
-    alert('article deleted!');
+    this.setState({deletedArticleTopic: this.props.article.topic})
+    console.log(this.props.article)
+    api.deleteArticle(this.props.article_id).then(() => {
+      alert('article deleted!');
+    })
+    
   }
 }
 
