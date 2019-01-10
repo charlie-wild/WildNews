@@ -12,6 +12,7 @@ import Sidebar from './components/Sidebar';
 import Auth from './components/Auth';
 import AddTopic from './components/AddTopic'
 import AddArticle from './components/AddArticle';
+import Users from './components/Users';
 
 
 
@@ -33,6 +34,7 @@ class App extends Component {
           <Article user={this.state.user} path="/articles/:article_id"/>
           <AddTopic path='/create_topic'/>
           <AddArticle user={this.state.user} topics={this.state.topics} path='/create_article' />
+          <Users path="/users"/>
           <User user={this.state.user} path="/users/:username"/>
       </Router>
         </Auth>
