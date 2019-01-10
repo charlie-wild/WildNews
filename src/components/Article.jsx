@@ -35,7 +35,7 @@ class Article extends Component {
               moment(comment.created_at).format('MMMM Do YYYY, h:mm:ss a')
             }</span>
             <span>Author: {comment.author}</span>     
-            {this.state.article.author === comment.author && <DeleteComment article_id={this.state.article.article_id} comment_id={comment.comment_id}/>}
+            {this.props.user.username === comment.author && <DeleteComment article_id={this.state.article.article_id} comment_id={comment.comment_id}/>}
           </Fragment>
           })}
         </ul>
