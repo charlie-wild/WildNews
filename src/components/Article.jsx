@@ -27,7 +27,7 @@ class Article extends Component {
         <em><p>Created by: {article.author}</p></em>
         <em><p>Created at: {moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}</p></em>
         <p>{article.body}</p>
-        <AddComment postNewComment={this.postNewComment} user={this.props.user} article_id={this.props.article_id}/>
+        <AddComment postNewComment={this.postNewComment} fetchComments={this.fetchComments} user={this.props.user} article_id={this.props.article_id}/>
         <ul>
           { comments.map(comment => {
             return <Fragment key={comment.comment_id}><li>{comment.body}</li>
@@ -36,7 +36,7 @@ class Article extends Component {
               moment(comment.created_at).format('MMMM Do YYYY, h:mm:ss a')
             }</span>
             <span>Author: {comment.author}</span>     
-            {this.props.user.username === comment.author && <DeleteComment article_id={this.state.article.article_id} comment_id={comment.comment_id}/>}
+            {this.props.user.username === comment.author && <DeleteComment fetchComments={this.fetchComments} article_id={this.state.article.article_id} comment_id={comment.comment_id}/>}
           </Fragment>
           })}
         </ul>
@@ -64,15 +64,6 @@ fetchComments = () => {
     this.setState({ comments });
   })
 }
-
-postNewComment = (newComment) => {
-  this.setState({
-    comments: [newComment, ...this.state.comments]
-  })
-}
-
-
-
 
 
 

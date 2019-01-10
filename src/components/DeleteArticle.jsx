@@ -17,8 +17,7 @@ class DeleteArticle extends Component {
 
   handleClick = () => {
     this.setState({deletedArticleTopic: this.props.article.topic})
-    console.log(this.props.article)
-    api.deleteArticle(this.props.article_id).then(() => {
+     api.deleteArticle(this.props.article_id).then(() => {
       alert('article deleted!');
     })
     

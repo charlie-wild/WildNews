@@ -12,11 +12,11 @@ class DeleteComment extends Component {
 
   handleClick = () => {
     api.deleteComment(this.props.article_id, this.props.comment_id).then(() => {
-      // call this.props.removeComment with this.props.comment_id 
+      alert('comment deleted!');
+      this.props.fetchComments();
 
     })
-    alert('comment deleted!');
-  }
+      }
 }
 
 export default DeleteComment;
