@@ -2,5 +2,6 @@
   grid-area: navbar;
   display: flex;
   justify-content: space-around;
+  border-bottom: black 2px solid
   
 }
