@@ -8,7 +8,6 @@ import Articles from './components/Articles';
 import Article from './components/Article';
 import User from './components/User';
 import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
 import Auth from './components/Auth';
 import AddTopic from './components/AddTopic'
 import AddArticle from './components/AddArticle';
@@ -26,9 +25,8 @@ class App extends Component {
       <div className="App">
           <Header/>
         <Auth user={this.state.user} login={this.login}>
-          <Navbar topics={this.state.topics} user={this.state.user}/>
-          <Sidebar user={this.state.user} logout={this.logout}/>
-        <Router className="content">
+          <Navbar topics={this.state.topics} user={this.state.user} logout={this.logout}/>
+          <Router className="content">
           <Articles path="/"/>
           <Articles user={this.state.user} path="/:topic"/>
           <Article user={this.state.user} path="/articles/:article_id"/>
