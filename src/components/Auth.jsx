@@ -16,15 +16,16 @@ class Auth extends Component {
     } = this.props;
     return (
       user.user_id ? children :
-      <div className="loginPage">
-      <h2>Welcome To NC News! Please Log In Below</h2>
+      <div class='centered-login'>
+      <p class='title is-4'>Welcome To NC News! Please Log In Below</p>
         <form className="form" onSubmit={this.handleSubmit}>
           <label className="label">Username: </label>
-          <input type="text" id="username" value={this.state.username} onChange={this.handleChange}/>
-          <button>Login</button>
+          <input type="text"class='input is-primary' id="username" value={this.state.username} onChange={this.handleChange}/>
+          <button class='button is-primary'>Login</button>
         </form>
         {this.state.failedLogin && <p>Invalid username!</p>}        
       </div>
+      
     );
   }
 
