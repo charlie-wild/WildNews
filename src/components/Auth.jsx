@@ -36,9 +36,9 @@ class Auth extends Component {
 
   }
 
-   handleChange = e => {
-    const { id, value } = e.target
-    this.setState({[id] : value})
+    handleChange = e => {
+      const { id, value } = e.target
+      this.setState({[id] : value})
   }
 }
 
