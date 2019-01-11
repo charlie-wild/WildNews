@@ -13,9 +13,9 @@ class AddArticle extends Component {
         <h2>Add An Article</h2>
           <form onSubmit={this.handleSubmit}>
             <label className='label' htmlFor='title'>Title:</label>
-            <input type='text' id='title' />
+            <input type='text' id='title' required/>
             <label className='label' htmlFor='body'>Body:</label>
-            <input className='textarea' type='text' id='body' />
+            <input className='textarea' type='text' id='body' required/>
             <label className='label' htmlFor='topic'>Select A Topic:</label>
             <select className='select is-primary' id='topic'>
             {topics.map(topic => {

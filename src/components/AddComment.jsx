@@ -11,7 +11,7 @@ class AddComment extends Component {
         {this.state.isLoading && <p>Posting comment...</p>}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor='comment'>Comment: </label>
-          <input type='text' id='comment'/>
+          <input type='text' id='comment' required/>
           <button className='button is-primary'>Submit Comment</button>
         </form>
       </div>
