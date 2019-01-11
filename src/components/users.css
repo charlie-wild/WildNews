@@ -1,0 +1,10 @@
+.all-users {
+  display: inline-block;
+}
+
+.user {
+  display: inline-block;
+  margin-left: 5%;
+  margin-right: 5%;
+  
+}

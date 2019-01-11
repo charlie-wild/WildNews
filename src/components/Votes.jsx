@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import * as api from './api'
+import * as api from './api';
+import './votes.css';
 
 class Votes extends Component {
  
@@ -12,10 +13,10 @@ class Votes extends Component {
     const { voteChange } = this.state;
     
     return (
-      <div>
-        <button onClick={() => this.vote(1)} disabled={voteChange===1}>Up</button>
+      <div className='article_vote'>
+        <button className='voteButton' onClick={() => this.vote(1)} disabled={voteChange===1}>Up</button>
         Votes: { votes + voteChange }
-        <button onClick={() => this.vote(-1)} disabled={voteChange===-1}>Down</button>        
+        <button className='voteButton' onClick={() => this.vote(-1)} disabled={voteChange===-1}>Down</button>        
       </div>
     );
   }

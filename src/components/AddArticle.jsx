@@ -12,19 +12,19 @@ class AddArticle extends Component {
       <div>
         <h2>Add An Article</h2>
           <form onSubmit={this.handleSubmit}>
-            <label htmlFor='title'>Title:</label>
+            <label className='label' htmlFor='title'>Title:</label>
             <input type='text' id='title' />
-            <label htmlFor='body'>Body:</label>
-            <input type='text' id='body' />
-            <label htmlFor='topic'>Select A Topic:</label>
-            <select id='topic'>
+            <label className='label' htmlFor='body'>Body:</label>
+            <input className='textarea' type='text' id='body' />
+            <label className='label' htmlFor='topic'>Select A Topic:</label>
+            <select className='select is-primary' id='topic'>
             {topics.map(topic => {
             return <option key={topic.slug} value={topic.slug}>
                 {topic.slug}
               </option>
             })}
             </select>
-          <button>Submit Article</button>
+          <button className='button is-success'>Submit Article</button>
           </form>
       </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import * as api from './api'
+import * as api from './api';
+import './commentvote.css';
 
 class CommentVotes extends Component {
    state = {
@@ -10,10 +11,10 @@ class CommentVotes extends Component {
     const { votes } = this.props;
     const { voteChange } = this.state;
     return (
-      <div>
-        <button onClick={() => this.voteComment(1)} disabled={voteChange===1}>Up</button>
+      <div className='comment_vote'>
+        <button className='voteButton' onClick={() => this.voteComment(1)} disabled={voteChange===1}>Up</button>
         Votes: { votes + voteChange }
-        <button onClick={() => this.voteComment(-1)} disabled={voteChange===-1}>Down</button>        
+        <button className='voteButton' onClick={() => this.voteComment(-1)} disabled={voteChange===-1}>Down</button>        
       </div>
     );
   }

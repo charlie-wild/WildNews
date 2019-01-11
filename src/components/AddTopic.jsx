@@ -10,14 +10,14 @@ class AddTopic extends Component {
   }
   render() {
     return (
-      <div className='form'>
+      <div className='add_topic'>
         <h2>Add A Topic</h2>
         <form onSubmit={this.addTopic}>
-          <label htmlFor='topic_title'>Topic:</label>
+          <label className='label' htmlFor='topic_title'>Topic:</label>
           <input type='text' id='slug' required />
-          <label htmlFor='description'>Description:</label>
+          <label className='label' htmlFor='description'>Description:</label>
           <input type='text' id='description' required />
-          <button>Add Topic</button>
+          <button className='button is-success'>Add Topic</button>
         </form>
         
       </div>

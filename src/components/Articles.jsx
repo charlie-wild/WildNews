@@ -21,7 +21,7 @@ class Articles extends Component {
 
         {this.state.isLoading && <h2>Loading...</h2>}
             { articles.map(article => {
-          return <Fragment key={article.article_id}><li className='single_article'>
+          return <Fragment key={article.article_id}><li className='single_article_title'>
               <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>
               <Votes article_id={article.article_id} votes={article.votes}/>
               <span>Created by:{article.username}</span>
@@ -37,11 +37,7 @@ class Articles extends Component {
     );
   }
 
-    // articleVotes = (currentarticle) => {
-    //   this.
-    // } 
-
-componentDidMount() {
+  componentDidMount() {
   this.setState({isLoading: false});
   this.state.page > 1 ? this.pagginate() :
   this.fetchArticles(this.props.topic);

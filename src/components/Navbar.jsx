@@ -35,6 +35,9 @@ class Navbar extends Component {
               <div className='button is-light'>
                 {<Link to='/create_article'>Create Article</Link>}
               </div>
+              <div className='button is-light'>
+                {<Link to='/users'>All Users</Link>}
+              </div>
 
             </div>
           </div>
@@ -42,7 +45,7 @@ class Navbar extends Component {
             Logged in as:<Link to={`/users/${user.username}`}>{user.username}</Link>
           </div>
           <div className='navbar-item'>
-            <button onClick={logout}>Logout</button>
+            <button className='button is-danger' onClick={logout}>Logout</button>
           </div>
         </div>
       </div>
