@@ -38,7 +38,6 @@ class Articles extends Component {
   }
 
   componentDidMount() {
-  this.setState({isLoading: false});
   this.state.page > 1 ? this.pagginate() :
   this.fetchArticles(this.props.topic);
   
@@ -46,7 +45,7 @@ class Articles extends Component {
 
 fetchArticles = () => {
   api.getArticles(this.props.topic).then((articles) => {
-    this.setState({ articles })
+    this.setState({ articles, isLoading: false })
   }).catch(err => {
     navigate('/404', { replace : true })
   }) 

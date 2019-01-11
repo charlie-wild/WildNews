@@ -3,12 +3,7 @@ import { navigate } from '@reach/router';
 import * as api from './api';
 
 class DeleteArticle extends Component {
-  state = {
-    clicked: false,
-    deletedArticleTopic: ''
-  }
   render() {
-    
     return (
       <div>
         <button className='button is-danger' onClick={this.handleClick}>Delete</button>

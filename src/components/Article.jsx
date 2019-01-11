@@ -16,7 +16,8 @@ class Article extends Component {
     comments: [],
     isLoaded: false,
     isClicked: false,
-    err: null
+    err: null,
+    page: 1,
   }
   render() {
     const { article, comments } = this.state;
