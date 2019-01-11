@@ -24,7 +24,7 @@ class AddArticle extends Component {
               </option>
             })}
             </select>
-          <button className='button is-success'>Submit Article</button>
+          <button className='button is-primary'>Submit Article</button>
           </form>
       </div>
     );

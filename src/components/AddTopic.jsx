@@ -18,7 +18,7 @@ class AddTopic extends Component {
           <input type='text' id='slug' required />
           <label className='label' htmlFor='description'>Description:</label>
           <input type='text' id='description' required />
-          <button className='button is-success'>Add Topic</button>
+          <button className='button is-primary'>Add Topic</button>
         </form>
         
       </div>

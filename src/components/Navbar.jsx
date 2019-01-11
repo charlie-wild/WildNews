@@ -7,13 +7,18 @@ class Navbar extends Component {
     render() {
     const { topics, user, logout } = this.props;
     return (
-      <div role='navigation' aria-label="main navigation" className="navbar">
+      <nav role='navigation' aria-label="main navigation" className="navbar is-primary">
         <div className='navbar brand' >
-          <div className='navbar-item'>
-          {<Link to='/'>Home</Link>}
-        </div>
+                <div role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+          </div>
+        
         </div>
         <div className='navbar-start'>
+        <div className='navbar-item'>
+          {<Link to='/'>Home</Link>}
         <div className='navbar-item has-dropdown is-hoverable'>
         <div className='navbar-link'>
           Topics
@@ -23,6 +28,7 @@ class Navbar extends Component {
             <Link to={`/${topic.slug}`}>{topic.slug}</Link>
           </span>
         })}
+      </div>
       </div>
       </div>
       </div>
@@ -48,7 +54,7 @@ class Navbar extends Component {
             <button className='button is-danger' onClick={logout}>Logout</button>
           </div>
         </div>
-      </div>
+      </nav>
     
     );
   }

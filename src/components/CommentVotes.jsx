@@ -12,9 +12,9 @@ class CommentVotes extends Component {
     const { voteChange } = this.state;
     return (
       <div className='comment_vote'>
-        <button className='voteButton' onClick={() => this.voteComment(1)} disabled={voteChange===1}>Up</button>
-        Votes: { votes + voteChange }
-        <button className='voteButton' onClick={() => this.voteComment(-1)} disabled={voteChange===-1}>Down</button>        
+        <button className='voteButton button is-success button is-small' onClick={() => this.voteComment(1)} disabled={voteChange===1}>Up</button>
+        <strong>{ votes + voteChange }</strong>
+        <button className='voteButton button is-danger button is-small' onClick={() => this.voteComment(-1)} disabled={voteChange===-1}>Down</button>        
       </div>
     );
   }

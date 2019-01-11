@@ -12,7 +12,7 @@ class AddComment extends Component {
         <form onSubmit={this.handleSubmit}>
           <label htmlFor='comment'>Comment: </label>
           <input type='text' id='comment'/>
-          <button>Submit Comment</button>
+          <button className='button is-primary'>Submit Comment</button>
         </form>
       </div>
     );

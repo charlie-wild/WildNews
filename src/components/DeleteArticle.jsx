@@ -11,7 +11,7 @@ class DeleteArticle extends Component {
     
     return (
       <div>
-        <button onClick={this.handleClick}>Delete</button>
+        <button className='button is-danger' onClick={this.handleClick}>Delete</button>
       </div>
     );
   }
