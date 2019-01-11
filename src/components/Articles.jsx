@@ -21,7 +21,7 @@ class Articles extends Component {
 
         {this.state.isLoading && <h2>Loading...</h2>}
             { articles.map(article => {
-          return <Fragment key={article.article_id}><li>
+          return <Fragment key={article.article_id}><li className='single_article'>
               <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>
               <Votes article_id={article.article_id} votes={article.votes}/>
               <span>Created by:{article.username}</span>
@@ -36,6 +36,10 @@ class Articles extends Component {
     
     );
   }
+
+    // articleVotes = (currentarticle) => {
+    //   this.
+    // } 
 
 componentDidMount() {
   this.setState({isLoading: false});

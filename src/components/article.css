@@ -1,0 +1,9 @@
+.article {
+   grid-area: content;
+   display: inline-block;
+   justify-content: center;
+   border-bottom: black 2px solid;
+   margin-bottom: 3%;
+   padding-bottom: 2%;
+   padding-top: 2%;
+}

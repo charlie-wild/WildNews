@@ -10,4 +10,8 @@
   'footer footer footer footer footer';
 }
 
+ul li {
+  list-style-type: none;
+}
+
 

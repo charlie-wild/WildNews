@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { Link } from '@reach/router';
 import moment from 'moment';
 import * as api from './api';
 import './article.css'
@@ -8,24 +9,30 @@ import DeleteComment from './DeleteComment';
 import DeleteArticle from './DeleteArticle';
 
 
+
 class Article extends Component {
   state = {
     article: {},
     comments: [],
     isLoaded: false,
     isClicked: false,
+    err: null
   }
   render() {
     const { article, comments } = this.state;
     return (
-      <div className="content">
+      <div className="content_single">
+      {this.state.err ? <h2>There is nothing here!</h2> :
         <Fragment>
-        {!this.state.isLoaded && <p>Loading...</p>}  
+        {!this.state.isLoaded && <p>Loading...</p>}
+        <div className='article'>
         <h2>{article.title}</h2>
+        Return to <Link to={`/${article.topic}`}>{article.topic}</Link>
         {this.props.user.user_id === this.state.article.user_id && <DeleteArticle article_id={this.state.article.article_id}/>}
         <em><p>Created by: {article.author}</p></em>
         <em><p>Created at: {moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}</p></em>
         <p>{article.body}</p>
+        </div>
         <AddComment postNewComment={this.postNewComment} fetchComments={this.fetchComments} user={this.props.user} article_id={this.props.article_id}/>
         <ul>
           { comments.map(comment => {
@@ -40,6 +47,7 @@ class Article extends Component {
           })}
         </ul>
         </Fragment>
+      }
       </div>
     );
   }
@@ -56,6 +64,9 @@ fetchArticle = () => {
   api.getArticleById(this.props.article_id).then((article) => {
     this.setState({ article });
   })
+  .catch(err => {
+    this.setState({err});
+  });
 }
 
 fetchComments = () => {

@@ -7,46 +7,41 @@ class Navbar extends Component {
     render() {
     const { topics, user, logout } = this.props;
     return (
-      <div class='navbar' role='navigation' aria-label="main navigation" className="navbar">
-        <div class='navbar brand' >
-          <div role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-           <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </div>
-        </div>
-        <div class='navbar-start'>
-        <div class='navbar-item'>
+      <div role='navigation' aria-label="main navigation" className="navbar">
+        <div className='navbar brand' >
+          <div className='navbar-item'>
           {<Link to='/'>Home</Link>}
         </div>
-        <div class='navbar-item has-dropdown is-hoverable'>
-        <div class='navbar-link'>
+        </div>
+        <div className='navbar-start'>
+        <div className='navbar-item has-dropdown is-hoverable'>
+        <div className='navbar-link'>
           Topics
         </div>
-        <div class='navbar-dropdown'>{topics.map(topic => {
-          return <span key={topic.slug} class='navbar-item'>
+        <div className='navbar-dropdown'>{topics.map(topic => {
+          return <span key={topic.slug} className='navbar-item'>
             <Link to={`/${topic.slug}`}>{topic.slug}</Link>
           </span>
         })}
       </div>
       </div>
       </div>
-        <div class='navbar-end'>
-           <div class='navbar-item'>
-            <div class='buttons'>
-              <div class='button is-light'>
+        <div className='navbar-end'>
+           <div className='navbar-item'>
+            <div className='buttons'>
+              <div className='button is-light'>
                 {<Link to='/create_topic'>Create Topic</Link>}
               </div>
-              <div class='button is-light'>
+              <div className='button is-light'>
                 {<Link to='/create_article'>Create Article</Link>}
               </div>
 
             </div>
           </div>
-           <div class='navbar-item'>
+           <div className='navbar-item'>
             Logged in as:<Link to={`/users/${user.username}`}>{user.username}</Link>
           </div>
-          <div class='navbar-item'>
+          <div className='navbar-item'>
             <button onClick={logout}>Logout</button>
           </div>
         </div>

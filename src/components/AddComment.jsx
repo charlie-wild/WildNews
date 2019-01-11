@@ -24,7 +24,7 @@ class AddComment extends Component {
     const body = event.target.comment.value;
     const user_id = this.props.user.user_id;
     const article_id = this.props.article_id;
-    api.postComment(article_id, {body, user_id}).then((comment) => {
+    api.postComment(article_id, {body, user_id}).then(() => {
       this.setState({isLoading: false})
       this.props.fetchComments();
     }).catch(err => alert('Error in posting comment.'))
