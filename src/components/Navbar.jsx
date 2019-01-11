@@ -5,7 +5,7 @@ import './navbar.css'
 
 class Navbar extends Component {
     render() {
-    const { topics, user, logout } = this.props;
+    const { topics, user } = this.props;
     return (
       <nav role='navigation' aria-label="main navigation" className="navbar is-primary">
         <div className='navbar brand' >
@@ -31,6 +31,9 @@ class Navbar extends Component {
       </div>
       </div>
       </div>
+      <div className='navbar-item'>
+       <p>Logged in as:<Link to={`/users/${user.username}`}>{user.username}</Link></p>
+       </div>
       </div>
         <div className='navbar-end'>
            <div className='navbar-item'>
@@ -47,13 +50,7 @@ class Navbar extends Component {
 
             </div>
           </div>
-           <div className='navbar-item'>
-            Logged in as:<Link to={`/users/${user.username}`}>{user.username}</Link>
-          </div>
-          <div className='navbar-item'>
-            <button className='button is-danger' onClick={logout}>Logout</button>
-          </div>
-        </div>
+         </div>
       </nav>
     
     );
