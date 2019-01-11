@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { navigate } from '@reach/router';
 import * as api from './api';
 
 class AddTopic extends Component {
@@ -34,7 +35,8 @@ class AddTopic extends Component {
         },
       },
       () => api.postTopic(this.state.newTopic).then(() => 
-      { alert('Topic Added Successfully!');
+      { alert('Topic Added Successfully! Now create an article for your new topic.');
+        navigate('/create_article');
         this.setState({newTopic: {
           slug: '',
           description: ''
