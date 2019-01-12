@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import * as api from './api'
 import './auth.css'
 
@@ -16,6 +16,8 @@ class Auth extends Component {
     } = this.props;
     return (
       user.user_id ? children :
+      <Fragment>
+      <img className='login_image image is-128x128' src='https://cdn-images-1.medium.com/max/1200/1*LdnSztHVYhhd8K8EqlgCJQ.png' alt='NorthCoders logo'/>
       <div className='centered-login'>
       <p className='title is-4'>Welcome To NC News! Please Log In Below</p>
           <form className="form" onSubmit={this.handleSubmit}>
@@ -25,6 +27,7 @@ class Auth extends Component {
         </form>
         {this.state.failedLogin && <p>Invalid username!</p>}        
       </div>
+      </Fragment>
       
     );
   }
