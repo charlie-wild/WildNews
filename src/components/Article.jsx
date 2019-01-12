@@ -18,10 +18,10 @@ class Article extends Component {
     isLoading: true,
     err: null,
     page: 1,
-  }
+   }
   render() {
-    const { article, comments } = this.state;
-    return (
+    const { article, comments, page } = this.state;
+      return (
       <section className="content_single">
       {this.state.err ?
       <Fragment>
@@ -53,6 +53,8 @@ class Article extends Component {
           </Fragment>
           })}
         </ul>
+          {page > 1 && <button className='button is-primary is-small page_button' onClick={this.pageDown}>Previous Page</button>}
+        <button className='button is-primary is-small page_button' onClick={this.pageUp}>Next Page</button>
         </Fragment>
       }
       </section>
@@ -61,8 +63,7 @@ class Article extends Component {
 
 
 componentDidMount() {
-  this.fetchArticle(this.props.article_id);
-  this.fetchComments(this.props.comment_id)
+    this.state.page > 1 ? (this.fetchArticle(this.props.article_id) && this.pagginate()) : (this.fetchArticle(this.props.article_id) && this.fetchComments(this.props.comment_id))
   }
 
 
@@ -81,7 +82,22 @@ fetchComments = () => {
   })
 }
 
+pagginate = () => {
+  api.changeCommentPage(this.state.page, this.props.article_id)
+  .then((comments) => this.setState({ comments }));
+}
 
+  pageDown = () => {
+    this.setState({page: this.state.page -1 }, () => {
+          this.pagginate();
+    })
+  }
+
+  pageUp = () => {
+    this.setState({page: this.state.page +1}, () => {
+          this.pagginate();
+      })
+  }
 
 
 }
