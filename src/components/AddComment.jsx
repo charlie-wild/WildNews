@@ -3,6 +3,7 @@ import* as api from './api';
 
 class AddComment extends Component {
   state = {
+    comment: '',
     isLoading: false,
     err: null,
   }
@@ -10,9 +11,9 @@ class AddComment extends Component {
     return (
       <div>
         {this.state.isLoading && <p>Posting comment...</p>}
-        <form onSubmit={this.handleSubmit}>
+        <form id='add_comment' onSubmit={this.handleSubmit}>
           <label htmlFor='comment'>Comment: </label>
-          <input type='text' id='comment' required/>
+          <input type='text' id='comment' required value={this.state.comment} onChange={this.handleChange}/>
           <button className='button is-primary'>Submit Comment</button>
         </form>
         {this.state.err && <p>Oh no! Something went wrong.</p>}
@@ -23,14 +24,20 @@ class AddComment extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.setState({isLoading: true});
-    const body = event.target.comment.value;
+    const body = this.state.comment;
     const user_id = this.props.user.user_id;
     const article_id = this.props.article_id;
     api.postComment(article_id, {body, user_id}).then(() => {
       this.setState({isLoading: false})
       this.props.fetchComments();
+      this.setState({comment: ''});
     }).catch(() => {this.setState({err : true})})
     
+  }
+
+  handleChange = event => {
+    const { id, value } = event.target;
+    this.setState({[id] : value});
   }
 }
 

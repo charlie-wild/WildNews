@@ -13,6 +13,7 @@ class User extends Component {
       const { userPageInfo, userArticles, userComments } = this.state;
     return (
       <div>
+      {userPageInfo === {} ? <p>This user does not exist!</p> :
       <Fragment>
         <h2>{userPageInfo.username}</h2>
         <img className='user_avatar'  src={userPageInfo.avatar_url} alt="user avatar"/>
@@ -29,10 +30,8 @@ class User extends Component {
             return<li key={comment.comment_id}>{comment.body}</li>
           })}
         </ul>
-       
-
-
-      </Fragment>
+            </Fragment>
+      };
       </div>
       
     );

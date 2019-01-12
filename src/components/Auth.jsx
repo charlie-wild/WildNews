@@ -32,15 +32,15 @@ class Auth extends Component {
     );
   }
 
-  handleSubmit = e => {
-    e.preventDefault()
+  handleSubmit = event => {
+    event.preventDefault()
     api.getUser(this.state.username).then(user => this.props.login(user))
     .catch(err => {this.setState({failedLogin : true})})
 
   }
 
-    handleChange = e => {
-      const { id, value } = e.target
+    handleChange = event => {
+      const { id, value } = event.target;
       this.setState({[id] : value})
   }
 }

@@ -4,6 +4,8 @@ import { navigate } from '@reach/router';
 
 class AddArticle extends Component {
   state = {
+      title: '',
+      body: '',
       isPosted: false,
       err : null,
   }
@@ -14,9 +16,9 @@ class AddArticle extends Component {
         <h2>Add An Article</h2>
           <form onSubmit={this.handleSubmit}>
             <label className='label' htmlFor='title'>Title:</label>
-            <input type='text' id='title' required/>
+            <input type='text' id='title' required value={this.state.title} onChange={this.handleChange}/>
             <label className='label' htmlFor='body'>Body:</label>
-            <input className='textarea' type='text' id='body' required/>
+            <input className='textarea' type='text' id='body' required value={this.state.body} onChange={this.handleChange} />
             <label className='label' htmlFor='topic'>Select A Topic:</label>
             <select className='select is-primary' id='topic'>
             {topics.map(topic => {
@@ -32,8 +34,8 @@ class AddArticle extends Component {
   }
 
   handleSubmit = event => {
-    const title = event.target.title.value;
-    const body = event.target.body.value;
+    const title = this.state.title;
+    const body = this.state.body;
     const topic = event.target.topic.value;
     const user_id = this.props.user.user_id;
     event.preventDefault();
@@ -41,14 +43,17 @@ class AddArticle extends Component {
     .then(() => {
       alert('New Article Added!');
       navigate(`/${topic}`);
-
-      
+      this.setState({title: '', body: ''})
     }).catch(() => {
       this.setState({err : true})
     })
 
   }
 
+  handleChange = event => {
+    const { id, value } = event.target;
+    this.setState({[id] : value })
+  }
    
   }
 

@@ -4,11 +4,9 @@ import * as api from './api';
 
 class AddTopic extends Component {
   state = {
-    newTopic: {
       slug: '',
       description: '',
-    },
-    err: null,
+      err: null,
   }
   render() {
     return (
@@ -16,9 +14,9 @@ class AddTopic extends Component {
         <h2>Add A Topic</h2>
         <form onSubmit={this.handleSubmit}>
           <label className='label' htmlFor='topic_title'>Topic:</label>
-          <input type='text' id='slug' value={this.state.newTopic.slug} onChange={this.handleChange} required />
+          <input type='text' id='slug' value={this.state.slug} onChange={this.handleChange} required />
           <label className='label' htmlFor='description'>Description:</label>
-          <input type='text' id='description' value={this.state.newTopic.description} onChange={this.handleChange} required />
+          <input type='text' id='description' value={this.state.description} onChange={this.handleChange} required />
           <button className='button is-primary'>Add Topic</button>
         </form>
         {this.state.err && <p>Oh no! We've encountered an error.</p>}
@@ -29,15 +27,15 @@ class AddTopic extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    api.postTopic(this.state.newTopic).then(() => 
+    api.postTopic(this.state.slug, this.state.description).then(() => 
       { alert('Topic Added Successfully! Now create an article for your new topic.');
         navigate('/create_article');
-        this.setState({newTopic: {
-          slug: '',
-          description: ''
-        }})
+        this.setState(
+          {slug: '',
+        description: ''})
         }      
-      ).catch(() => {
+      ).catch((error) => {
+        console.log(error)
         this.setState({err: true});
       })
       
@@ -45,14 +43,11 @@ class AddTopic extends Component {
 
     handleChange = ({ target: { value, id } }) => {
         this.setState({
-          newTopic: {
-            [id]: value
+          [id]: value
           }
-        })
+        )
     }
+  }
 
-   TODO: // fix this to be a controlled component. 
-
-}
 
 export default AddTopic;

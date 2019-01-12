@@ -44,8 +44,8 @@ export const getComments = async () => {
   return data.comments;
 }
 
-export const postTopic = async newTopic => {
-  const { data } = await axios.post(`${BASE_URL}/topics`, newTopic)
+export const postTopic = async (slug, description) => {
+  const { data } = await axios.post(`${BASE_URL}/topics`, {slug, description})
   return data.topic;
 }
 
