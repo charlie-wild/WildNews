@@ -5,7 +5,7 @@ class DeleteComment extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleClick}>Delete</button>
+        <button className='button is-danger button is-small' onClick={this.handleClick}>Delete</button>
       </div>
     );
   }
