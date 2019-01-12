@@ -15,8 +15,7 @@ class Article extends Component {
   state = {
     article: {},
     comments: [],
-    isLoaded: false,
-    isClicked: false,
+    isLoading: true,
     err: null,
     page: 1,
   }
@@ -30,7 +29,7 @@ class Article extends Component {
        <p>Return <Link to='/'>home</Link></p>
        </Fragment> :
         <Fragment>
-        {!this.state.isLoaded && <p>Loading...</p>}
+        {this.state.isLoading && <h2>Loading...</h2>}
         <article className='article'>
         <h2>{article.title}</h2>
         <Votes article_id={this.state.article.article_id} votes={this.state.article.votes}/>
@@ -62,16 +61,15 @@ class Article extends Component {
 
 
 componentDidMount() {
-  this.setState({isLoaded: true})
   this.fetchArticle(this.props.article_id);
-  this.fetchComments(this.props.comment_id);
-}
+  this.fetchComments(this.props.comment_id)
+  }
 
 
 fetchArticle = () => {
   api.getArticleById(this.props.article_id).then((article) => {
     this.setState({ article });
-  })
+  }).then(() => this.setState({isLoading: false}))
   .catch(err => {
     this.setState({err});
   });

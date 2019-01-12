@@ -28,8 +28,8 @@ class Articles extends Component {
               <span>Created: {moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}</span>
               </Fragment>
           })}<br/>
-            {this.state.page > 1 && <button onClick={this.pageDown}>Previous Page</button>}
-        <button onClick={this.pageUp}>Next Page</button>
+            {this.state.page > 1 && <button className='button is-primary is-small page_button' onClick={this.pageDown}>Previous Page</button>}
+        <button className='button is-primary is-small page_button' onClick={this.pageUp}>Next Page</button>
       </ul>
       
     </div>
