@@ -7,7 +7,6 @@ class Auth extends Component {
       username: 'weegembump',
       failedLogin: false
     }
-
       
   render() {
     const {

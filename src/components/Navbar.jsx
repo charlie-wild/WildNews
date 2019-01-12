@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from '@reach/router';
 import './navbar.css'
 
-
-class Navbar extends Component {
-    render() {
-    const { topics, user } = this.props;
-    return (
+const Navbar = ({topics, user}) => {
+      return (
       <nav role='navigation' aria-label="main navigation" className="navbar is-primary">
         <div className='navbar brand' >
                 <div role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -57,6 +54,5 @@ class Navbar extends Component {
   }
 
 
-}
 
 export default Navbar;

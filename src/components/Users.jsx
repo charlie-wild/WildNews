@@ -4,7 +4,9 @@ import * as api from './api';
 import './users.css';
 
 class Users extends Component {
-  state = { users: [] }
+  state = {
+     users: []
+    }
   render() {
     const { users } = this.state;
     return (

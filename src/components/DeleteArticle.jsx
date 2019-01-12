@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { navigate } from '@reach/router';
 import * as api from './api';
 
-class DeleteArticle extends Component {
-  render() {
-    return (
+const DeleteArticle = ({article_id}) => {
+
+const handleClick = () => {
+  api.deleteArticle(article_id).then(() => {
+    alert('article deleted!')
+    navigate('/');
+  })
+}
+return (
       <div>
-        <button className='button is-danger' onClick={this.handleClick}>Delete Article</button>
+        <button className='button is-danger' onClick={handleClick}>Delete Article</button>
       </div>
     );
-  }
 
-  handleClick = () => {
-      api.deleteArticle(this.props.article_id).then(() => {
-      alert('article deleted!')
-      navigate('/');
-    })
-    
-  }
+
 }
 
 export default DeleteArticle;
