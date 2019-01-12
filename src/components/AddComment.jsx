@@ -4,6 +4,7 @@ import* as api from './api';
 class AddComment extends Component {
   state = {
     isLoading: false,
+    err: null,
   }
   render() {
     return (
@@ -14,6 +15,7 @@ class AddComment extends Component {
           <input type='text' id='comment' required/>
           <button className='button is-primary'>Submit Comment</button>
         </form>
+        {this.state.err && <p>Oh no! Something went wrong.</p>}
       </div>
     );
   }
@@ -27,7 +29,7 @@ class AddComment extends Component {
     api.postComment(article_id, {body, user_id}).then(() => {
       this.setState({isLoading: false})
       this.props.fetchComments();
-    }).catch(err => alert('Error in posting comment.'))
+    }).catch(() => {this.setState({err : true})})
     
   }
 }

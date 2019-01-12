@@ -15,7 +15,7 @@ class Users extends Component {
               return <Fragment key={user.user_id}>
                 <li className='user'>
                   <h4>{user.username}</h4>
-                    <img className='image is-96x96'src={users.avatar_url} alt='user avatar'/><br/>
+                    <img className='image is-96x96'src={user.avatar_url} alt='user avatar'/><br/>
                     <Link to={`/users/${user.username}`}>Profile Page</Link>
                 </li>
               </Fragment>

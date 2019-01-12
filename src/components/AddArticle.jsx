@@ -4,7 +4,8 @@ import { navigate } from '@reach/router';
 
 class AddArticle extends Component {
   state = {
-      isPosted: false
+      isPosted: false,
+      err : null,
   }
     render() {      
       const { topics } = this.props
@@ -42,8 +43,8 @@ class AddArticle extends Component {
       navigate(`/${topic}`);
 
       
-    }).catch((err) => {
-      alert('Error in submission!')
+    }).catch(() => {
+      this.setState({err : true})
     })
 
   }
