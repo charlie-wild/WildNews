@@ -16,7 +16,7 @@ class User extends Component {
       <Fragment>
         <h2>{userPageInfo.username}</h2>
         <img className='user_avatar'  src={userPageInfo.avatar_url} alt="user avatar"/>
-        <p>User Articles</p>
+        <p className='subtitle is-two'>New User Articles</p>
         <ul>
           { userArticles.map(article => {
             return<li key={article.article_id}>
@@ -24,7 +24,7 @@ class User extends Component {
           })}
         </ul>
         <ul>
-        <p>User Comments</p>
+        <p className='subtitle is-three'>Latest User Comments</p>
          { userComments.map(comment => {
             return<li key={comment.comment_id}>{comment.body}</li>
           })}
@@ -60,7 +60,6 @@ class User extends Component {
 
   fetchUserComments = () => {
     api.getComments().then((comments) => {
-      console.log(comments)
       this.setState({userComments: comments.filter(comment => {
         return comment.author === this.props.username;
       })})

@@ -61,12 +61,10 @@ export const postComment = async (article_id, newComment) => {
 
 export const vote = async (article_id, inc_votes) => {
   const { data } = await axios.patch(`${BASE_URL}/articles/${article_id}`, {inc_votes})
-  console.log(data);
   return data.votes;
 }
 
 export const voteComment = async (article_id, comment_id, inc_votes) => {
-  console.log(inc_votes)
   const { data } = await axios.patch(`${BASE_URL}/articles/${article_id}/comments/${comment_id}`, {inc_votes})
   return data.votes;
 }
