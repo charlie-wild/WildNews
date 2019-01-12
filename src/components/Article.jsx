@@ -4,6 +4,7 @@ import moment from 'moment';
 import * as api from './api';
 import './article.css'
 import AddComment from './AddComment';
+import Votes from './Votes';
 import CommentVotes from './CommentVotes';
 import DeleteComment from './DeleteComment';
 import DeleteArticle from './DeleteArticle';
@@ -28,6 +29,7 @@ class Article extends Component {
         {!this.state.isLoaded && <p>Loading...</p>}
         <div className='article'>
         <h2>{article.title}</h2>
+        <Votes article_id={this.state.article.article_id} votes={this.state.article.votes}/>
         Return to <Link to={`/${article.topic}`}>{article.topic}</Link>
         {this.props.user.user_id === this.state.article.user_id && <DeleteArticle article_id={this.state.article.article_id}/>}
         <em><p>Created by: {article.author}</p></em>
