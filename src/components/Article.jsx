@@ -66,9 +66,19 @@ class Article extends Component {
 
 
 componentDidMount() {
-    this.state.page > 1 ? (this.fetchArticle(this.props.article_id) && this.pagginate()) : (this.fetchArticle(this.props.article_id) && this.fetchComments(this.props.comment_id))
+    this.state.page > 1 ? this.renderOtherPage( ): this.renderArticle();
   }
 
+
+  renderArticle = () => {
+    this.fetchArticle();
+    this.fetchComments();
+  }
+
+  renderOtherPage = () => {
+    this.fetchArticle();
+    this.pagginate();
+  }
 
 fetchArticle = () => {
   api.getArticleById(this.props.article_id).then((article) => {

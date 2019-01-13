@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './addarticle.css';
 import * as api from './api'
 import { navigate } from '@reach/router';
 
@@ -16,9 +17,7 @@ class AddArticle extends Component {
         <h2>Add An Article</h2>
           <form onSubmit={this.handleSubmit}>
             <label className='label' htmlFor='title'>Title:</label>
-            <input type='text' id='title' required value={this.state.title} onChange={this.handleChange}/>
-            <label className='label' htmlFor='body'>Body:</label>
-            <input className='textarea' type='text' id='body' required value={this.state.body} onChange={this.handleChange} />
+            <input type='text' className='input is-primary title_input' id='title' required value={this.state.title} onChange={this.handleChange}/>
             <label className='label' htmlFor='topic'>Select A Topic:</label>
             <select className='select is-primary' id='topic'>
             {topics.map(topic => {
@@ -27,7 +26,9 @@ class AddArticle extends Component {
               </option>
             })}
             </select>
-          <button className='button is-primary'>Submit Article</button>
+            <label className='label' htmlFor='body'>Body:</label>
+            <input className='textarea' type='text' id='body' required value={this.state.body} onChange={this.handleChange} />
+            <button className='button is-primary is-large submit_button'>Submit Article</button>
           </form>
       </div>
     );

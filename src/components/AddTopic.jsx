@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { navigate } from '@reach/router';
 import * as api from './api';
+import './addtopic.css'
 
 class AddTopic extends Component {
   state = {
@@ -10,19 +11,20 @@ class AddTopic extends Component {
   }
   render() {
     return (
-      <div className='add_topic'>
+      <Fragment>
         <h2>Add A Topic</h2>
         <form onSubmit={this.handleSubmit}>
+           <div className='add_topic'>
           <label className='label' htmlFor='topic_title'>Topic:</label>
-          <input type='text' id='slug' value={this.state.slug} onChange={this.handleChange} required />
+          <input type='text' className='input is-primary addTopic' id='slug' value={this.state.slug} onChange={this.handleChange} required />
           <label className='label' htmlFor='description'>Description:</label>
-          <input type='text' id='description' value={this.state.description} onChange={this.handleChange} required />
-          <button className='button is-primary'>Add Topic</button>
+          <input type='text' id='description' className='input is-primary addTopic' value={this.state.description} onChange={this.handleChange} required />
+          </div>
+          <button className='button is-primary is-large'>Add Topic</button>
         </form>
         {this.state.err && <p>Oh no! We've encountered an error.</p>}
-        
-      </div>
-    );
+        </Fragment>
+       );
   }
 
   handleSubmit = event => {
