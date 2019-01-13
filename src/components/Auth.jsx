@@ -22,7 +22,7 @@ class Auth extends Component {
           <form className="form" onSubmit={this.handleSubmit}>
           <label className="label">Username: </label>
           <input type="text" className='input is-primary' id="username" required value={this.state.username} onChange={this.handleChange}/>
-          <button className='button is-primary'>Login</button>
+          <button className='button is-primary is-large login_button'>Login</button>
         </form>
         {this.state.failedLogin && <p>Invalid username!</p>}        
       </div>

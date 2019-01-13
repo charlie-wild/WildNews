@@ -11,7 +11,6 @@ const Navbar = ({topics, user}) => {
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
           </div>
-        
         </div>
         <div className='navbar-start'>
         <div className='navbar-item'>

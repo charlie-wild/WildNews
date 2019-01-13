@@ -18,16 +18,16 @@ class Article extends Component {
     isLoading: true,
     err: null,
     page: 1,
-   }
+    }
   render() {
     const { article, comments, page } = this.state;
       return (
       <section className="content_single">
       {this.state.err ?
       <Fragment>
-       <h2>There is nothing here!</h2>
-       <p>Return <Link to='/'>home</Link></p>
-       </Fragment> :
+      <h2>There is nothing here!</h2>
+      <p>Return <Link to='/'>home</Link></p>
+      </Fragment> :
         <Fragment>
         {this.state.isLoading && <h2>Loading...</h2>}
         <article className='article'>
@@ -43,13 +43,16 @@ class Article extends Component {
         <ul>
         {comments.length === 0 && <p>Why not be the first to add a comment?</p>}
           { comments.map(comment => {
-            return <Fragment key={comment.comment_id}><li>{comment.body}</li>
+            return <Fragment key={comment.comment_id}>
+            <div className='single_comment'>
+            <li>{comment.body}</li>
             <CommentVotes comment_id={comment.comment_id} article_id={article.article_id}votes={comment.votes}/>
             <span>Created: {
               moment(comment.created_at).format('MMMM Do YYYY, h:mm:ss a')
             }</span>
             <span>Author: {comment.author}</span>     
             {this.props.user.username === comment.author && <DeleteComment fetchComments={this.fetchComments} article_id={this.state.article.article_id} comment_id={comment.comment_id}/>}
+            </div>
           </Fragment>
           })}
         </ul>

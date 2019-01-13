@@ -21,11 +21,14 @@ class Articles extends Component {
 
         {this.state.isLoading && <h2>Loading...</h2>}
             { articles.map(article => {
-          return <Fragment key={article.article_id}><li className='single_article_title'>
+          return <Fragment key={article.article_id}>
+              <article className='single_article'>
+              <li className='single_article_title'>
               <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>
               <Votes article_id={article.article_id} votes={article.votes}/>
               <span>Created by:{article.username}</span>
               <span>Created: {moment(article.created_at).format('MMMM Do YYYY, h:mm:ss a')}</span>
+              </article>
               </Fragment>
           })}<br/>
             {this.state.page > 1 && <button className='button is-primary is-small page_button' onClick={this.pageDown}>Previous Page</button>}
