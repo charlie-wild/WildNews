@@ -32,7 +32,7 @@ class Articles extends Component {
               </Fragment>
           })}<br/>
             {this.state.page > 1 && <button className='button is-primary is-small page_button' onClick={this.pageDown}>Previous Page</button>}
-        <button className='button is-primary is-small page_button' onClick={this.pageUp}>Next Page</button>
+            <button className='button is-primary is-small page_button' onClick={this.pageUp}>Next Page</button>
       </ul>
       
     </div>

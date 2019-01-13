@@ -69,6 +69,13 @@ class App extends Component {
     this.setState({ topics })
   })
 }
+
+componentDidUpdate(prevProps, prevState) {
+  const { topics } = this.state;
+  if (topics !== prevState.topics) {
+    return this.fetchTopics();
+  }
+}
 }
 
 export default App;

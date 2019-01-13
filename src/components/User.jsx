@@ -13,6 +13,7 @@ class User extends Component {
       const { userPageInfo, userArticles, userComments } = this.state;
     return (
       <div>
+      {console.log(userPageInfo)}
       {userPageInfo === {} ? <p>This user does not exist!</p> :
       <Fragment>
         <h2>{userPageInfo.username}</h2>
