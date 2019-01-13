@@ -25,7 +25,7 @@ class User extends Component {
           })}
         </ul>
         </Fragment>
-      };
+      }
       </div>
       
     );
@@ -56,7 +56,7 @@ class User extends Component {
       username
     } = this.props
     if (username !== prevProps.username) {
-      return this.fetchUser(username)
+      return this.fetchUser()
     }
   }
 }

@@ -37,7 +37,6 @@ class AddTopic extends Component {
         description: ''})
         }      
       ).catch((error) => {
-        console.log(error)
         this.setState({err: true});
       })
       
