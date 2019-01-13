@@ -5,7 +5,6 @@ import moment from 'moment';
 import * as api from './api';
 import './articles.css';
 
-
 class Articles extends Component {
   state = { 
     articles: [],
@@ -34,17 +33,14 @@ class Articles extends Component {
             {this.state.page > 1 && <button className='button is-primary is-small page_button' onClick={this.pageDown}>Previous Page</button>}
             <button className='button is-primary is-small page_button' onClick={this.pageUp}>Next Page</button>
       </ul>
-      
     </div>
-    
     );
   }
 
   componentDidMount() {
   this.state.page > 1 ? this.pagginate() :
   this.fetchArticles(this.props.topic);
-  
-}
+  }
 
 fetchArticles = () => {
   api.getArticles(this.props.topic).then((articles) => {
