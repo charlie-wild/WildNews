@@ -7,10 +7,9 @@ class User extends Component {
   state = {
     userPageInfo: {},
     userArticles: [],
-    userComments: []
-  }
+    }
   render() {
-      const { userPageInfo, userArticles, userComments } = this.state;
+      const { userPageInfo, userArticles } = this.state;
     return (
       <div>
       {console.log(userPageInfo)}
@@ -25,13 +24,7 @@ class User extends Component {
               <Link to={`/articles/${article.article_id}`}>{article.title}</Link></li>
           })}
         </ul>
-        <ul>
-        <p className='subtitle is-three'>Latest User Comments</p>
-         { userComments.map(comment => {
-            return<li key={comment.comment_id}>{comment.body}</li>
-          })}
-        </ul>
-            </Fragment>
+        </Fragment>
       };
       </div>
       
@@ -58,13 +51,6 @@ class User extends Component {
     })
   }
 
-  fetchUserComments = () => {
-    api.getComments().then((comments) => {
-      this.setState({userComments: comments.filter(comment => {
-        return comment.author === this.props.username;
-      })})
-    })
-  }
 
   componentDidUpdate(prevProps, prevState) {
     const {
