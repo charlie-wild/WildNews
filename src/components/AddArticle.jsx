@@ -27,7 +27,8 @@ class AddArticle extends Component {
             })}
             </select>
             <label className='label' htmlFor='body'>Body:</label>
-            <input className='text_area' type='text' id='body' required value={this.state.body} onChange={this.handleChange} />
+            <input className='text_area input is-primary' type='text' id='body' rows='10' required value={this.state.body} onChange={this.handleChange} />
+            <br/>
             <button className='button is-primary is-large submit_button'>Submit Article</button>
           </form>
       </div>

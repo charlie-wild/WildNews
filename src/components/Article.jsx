@@ -57,7 +57,7 @@ class Article extends Component {
           })}
         </ul>
           {page > 1 && <button className='button is-primary is-small page_button' onClick={this.pageDown}>Previous Page</button>}
-        <button className='button is-primary is-small page_button' onClick={this.pageUp}>Next Page</button>
+       { (article.comment_count/10) > page && <button className='button is-primary is-small page_button' onClick={this.pageUp}>Next Page</button> }
         </Fragment>
       }
       </section>
