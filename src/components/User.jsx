@@ -34,8 +34,7 @@ class User extends Component {
   componentDidMount() {
     this.fetchUser(this.props.username)
     this.fetchUserArticles();
-    this.fetchUserComments();
-  }
+   }
 
   fetchUser = () => {
     api.getUser(this.props.username).then((user) => {

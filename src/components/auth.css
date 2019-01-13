@@ -23,4 +23,8 @@
   transform: translate(-50%, -50%)
 }
 
+.user_input {
+  max-width: 75%;
+}
+
 
