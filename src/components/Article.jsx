@@ -114,6 +114,7 @@ class Article extends Component {
     this.state.page > 1 ? this.renderOtherPage() : this.renderArticle();
   }
 
+  
   renderArticle = () => {
     this.fetchArticle();
     this.fetchComments();
