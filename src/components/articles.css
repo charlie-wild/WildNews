@@ -18,6 +18,10 @@ span {
   margin-right: 3%;
 }
 
+.single_article:nth-of-type(even) {
+  margin-right: 3%;
+}
+
 .page_button {
   margin-top: 5px;
   margin-left: 15px;

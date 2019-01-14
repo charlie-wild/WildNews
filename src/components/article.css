@@ -12,3 +12,7 @@
    background-color: lightgray;
    margin-right: 3%;
    }
+
+.single_comment:nth-of-type(even) {
+   margin-right: 3%;
+}
