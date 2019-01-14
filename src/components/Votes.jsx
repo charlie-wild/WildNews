@@ -10,7 +10,6 @@ class Votes extends Component {
   render() {
     const { votes } = this.props;
     const { voteChange } = this.state;
-    console.log(votes);
     return (
       <div className="article_vote">
         <button
