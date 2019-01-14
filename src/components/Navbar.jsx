@@ -27,9 +27,6 @@ const Navbar = ({topics, user}) => {
       </div>
       </div>
       </div>
-      <div className='navbar-item'>
-       <p>Logged in as:<Link to={`/users/${user.username}`}>{user.username}</Link></p>
-       </div>
       </div>
         <div className='navbar-end'>
            <div className='navbar-item'>

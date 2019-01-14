@@ -13,3 +13,11 @@ header {
   justify-content: flex-end;
 
  }
+
+ .logged_user {
+   grid-area: header;
+   display: flex;
+   justify-content: flex-start;
+   margin-left: 2%;
+   margin-top: 1%;
+ }
