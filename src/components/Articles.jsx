@@ -14,9 +14,15 @@ class Articles extends Component {
   render() {
     const { articles, page } = this.state;
     const { topic } = this.props;
-    if (articles.length === 0) return <h2 className='empty_topic'>There are no articles! Create one <Link to='/create_article'>here</Link></h2>
+    if (articles.length === 0)
+      return (
+        <h2 className="empty_topic">
+          There are no articles! Create one{" "}
+          <Link to="/create_article">here</Link>
+        </h2>
+      );
     return (
-        <div>
+      <div>
         {topic && <h2>{topic}</h2>}
         <ul>
           {this.state.isLoading && <h2>Loading...</h2>}
