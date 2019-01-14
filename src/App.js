@@ -32,7 +32,7 @@ class App extends Component {
           <Router className="content">
           <Topics topics={this.state.topics} path='/topics'/>
           <Articles path="/"/>
-          <Articles user={this.state.user} path="/:topic"/>
+          <Articles user={this.state.user} topics={this.state.topics} path="/:topic"/>
           <Article user={this.state.user} path="/articles/:article_id"/>
           <AddTopic path='/create_topic'/>
           <AddArticle user={this.state.user} topics={this.state.topics} path='/create_article' />

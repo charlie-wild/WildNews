@@ -12,10 +12,11 @@ class Articles extends Component {
     page: 1,
     }
   render() {
-    const { articles } = this.state;
+    const { articles, page } = this.state;
+    const { topic } = this.props;
     return (
       <div>
-      {this.props.topic && <h2>{this.props.topic}</h2>}
+      {topic && <h2>{topic}</h2>}
         <ul>
 
         {this.state.isLoading && <h2>Loading...</h2>}
@@ -30,8 +31,9 @@ class Articles extends Component {
               </article>
               </Fragment>
           })}<br/>
-            {this.state.page > 1 && <button className='button is-primary is-small page_button' onClick={this.pageDown}>Previous Page</button>}
-            <button className='button is-primary is-small page_button' onClick={this.pageUp}>Next Page</button>
+            {page > 1 && <button className='button is-primary is-small page_button' onClick={this.pageDown}>Previous Page</button>}
+            {(articles.length === 10) && <button className='button is-primary is-small page_button' onClick={this.pageUp}>Next Page</button>}
+              
       </ul>
     </div>
     );
@@ -55,7 +57,7 @@ componentDidUpdate(prevProps, prevState) {
       topic
     } = this.props
     if (topic !== prevProps.topic && this.state.articles.length !== 0)  {
-      return this.fetchArticles(topic)
+      return this.fetchArticles()
     }
   
 }
