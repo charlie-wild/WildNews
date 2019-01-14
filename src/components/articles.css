@@ -1,7 +1,6 @@
 .content {
   grid-area: content;
   text-align: center;
-    
 }
 
 span {
@@ -32,3 +31,37 @@ span {
   margin-top: 10%;
 }
 
+@media only screen and (max-width: 600px) {
+  .content {
+    grid-area: content;
+    text-align: center;
+  }
+
+  span {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .single_article_title {
+    margin-top: 1%;
+  }
+
+  .single_article:nth-of-type(odd) {
+    background-color: lightgray;
+    margin-right: 7.5%;
+  }
+
+  .single_article:nth-of-type(even) {
+    margin-right: 7.5%;
+  }
+
+  .page_button {
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-right: 2px;
+  }
+
+  .empty_topic {
+    margin-top: 10%;
+  }
+}
