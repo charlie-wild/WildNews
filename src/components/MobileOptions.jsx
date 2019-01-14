@@ -13,10 +13,10 @@ const MobileOptions = () => {
         <Link to="/users">
           <h2>View All Users</h2>
         </Link>
-        <Link to="create_topic">
+        <Link to="/create_topic">
           <h2>Create Topic</h2>
         </Link>
-        <Link to="create_Article">
+        <Link to="/create_Article">
           <h2>Create Article</h2>
         </Link>
       </div>
