@@ -1,17 +1,22 @@
-import React, { Fragment } from 'react';
-import { Link } from '@reach/router';
-import './topics.css';
+import React, { Fragment } from "react";
+import { Link } from "@reach/router";
+import "./topics.css";
 
-const Topics = ({topics}) => {
+const Topics = ({ topics }) => {
   return (
-    <div className='topics'>
+    <div className="topics">
       <h1>Topics</h1>
-        { topics.map(topic => {
-          return  <Fragment key={topic.slug}>
-            <Link to={`/${topic.slug}`}> <h2>{topic.slug}</h2></Link>
-              <p>{topic.description}</p>
+      {topics.map(topic => {
+        return (
+          <Fragment key={topic.slug}>
+            <Link to={`/${topic.slug}`}>
+              {" "}
+              <h2>{topic.slug}</h2>
+            </Link>
+            <p>{topic.description}</p>
           </Fragment>
-        })}
+        );
+      })}
     </div>
   );
 };
