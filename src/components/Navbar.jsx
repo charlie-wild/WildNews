@@ -1,50 +1,33 @@
 import React from 'react';
 import {Link} from '@reach/router';
+import MediaQuery from 'react-responsive';
 import './navbar.css'
 
 const Navbar = ({topics, user}) => {
       return (
-      <nav role='navigation' aria-label="main navigation" className="navbar is-primary">
-        <div className='navbar brand' >
-                <div role="button" className="navbar-burger" aria-label="menu" aria-expanded="false">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-          </div>
-        </div>
-        <div className='navbar-start'>
-        <div className='navbar-item'>
-          {<Link to='/'>Home</Link>}
-        <div className='navbar-item has-dropdown is-hoverable'>
-        <div className='navbar-link'>
-          Topics
-        </div>
-        <div className='navbar-dropdown'>{topics.map(topic => {
-          return <span key={topic.slug} className='navbar-item'>
-            <Link to={`/${topic.slug}`}>{topic.slug}</Link>
-          </span>
-        })}
-      </div>
-      </div>
-      </div>
-      </div>
-        <div className='navbar-end'>
-           <div className='navbar-item'>
-            <div className='buttons'>
-              <div className='button is-light'>
-                {<Link to='/create_topic'>Create Topic</Link>}
-              </div>
-              <div className='button is-light'>
-                {<Link to='/create_article'>Create Article</Link>}
-              </div>
-              <div className='button is-light'>
-                {<Link to='/users'>All Users</Link>}
-              </div>
-
-            </div>
-          </div>
-         </div>
-      </nav>
+      <nav className='navbar is-primary'>
+  <div className="nav-header">
+    <div className="nav-title">
+    <MediaQuery query='(min-device-width: 794px)'>
+      <Link to='/'>Home</Link>
+      <p>Logged in as: {user.username}</p>
+    </MediaQuery>
+    </div>
+  </div>
+  <div className="nav-btn">
+    <label htmlFor="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+   <div className="nav-links">
+    <button className='button is-primary'><Link to='/users'>All Users</Link></button>
+    <button className='button is-primary'><Link to='/topics'>View Topics</Link></button>
+    <button className='button is-primary'><Link to='/create_topic'>Create Topic</Link></button>
+    <button className='button is-primary'><Link to='/create_article'>Create Article</Link></button>
+  </div>
+   </nav>
     
     );
   }

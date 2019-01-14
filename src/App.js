@@ -13,6 +13,7 @@ import AddTopic from './components/AddTopic'
 import AddArticle from './components/AddArticle';
 import Users from './components/Users';
 import Errors from './components/Errors';
+import Topics from './components/Topics';
 
 
 
@@ -28,6 +29,7 @@ class App extends Component {
         <Auth user={this.state.user} login={this.login}>
           <Navbar topics={this.state.topics} user={this.state.user} logout={this.logout}/>
           <Router className="content">
+          <Topics topics={this.state.topics} path='/topics'/>
           <Articles path="/"/>
           <Articles user={this.state.user} path="/:topic"/>
           <Article user={this.state.user} path="/articles/:article_id"/>
