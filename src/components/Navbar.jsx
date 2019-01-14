@@ -10,7 +10,7 @@ const Navbar = ({topics, user}) => {
     <div className="nav-title">
      <Link to='/'>Home</Link>
      <MediaQuery query='(min-device-width: 794px)'>
-      <p>Logged in as: {user.username}</p>
+      <p>Logged in as:<Link to={`/users/${user.username}`}>{user.username}</Link></p>
     </MediaQuery>
     </div>
   </div>
