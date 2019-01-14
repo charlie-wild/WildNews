@@ -8,8 +8,8 @@ const Navbar = ({topics, user}) => {
       <nav className='navbar is-primary'>
   <div className="nav-header">
     <div className="nav-title">
-    <MediaQuery query='(min-device-width: 794px)'>
-      <Link to='/'>Home</Link>
+     <Link to='/'>Home</Link>
+     <MediaQuery query='(min-device-width: 794px)'>
       <p>Logged in as: {user.username}</p>
     </MediaQuery>
     </div>
@@ -21,13 +21,18 @@ const Navbar = ({topics, user}) => {
       <span></span>
     </label>
   </div>
+  <MediaQuery query='(max-device-width: 650px)'>
+    <Link to='/mobile_options'>Options</Link>
+  </MediaQuery>
+  <MediaQuery query='(min-device-width: 650px)'>
    <div className="nav-links">
     <button className='button is-primary'><Link to='/users'>All Users</Link></button>
     <button className='button is-primary'><Link to='/topics'>View Topics</Link></button>
     <button className='button is-primary'><Link to='/create_topic'>Create Topic</Link></button>
     <button className='button is-primary'><Link to='/create_article'>Create Article</Link></button>
   </div>
-   </nav>
+  </MediaQuery>
+  </nav>
     
     );
   }

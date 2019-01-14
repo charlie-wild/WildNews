@@ -14,6 +14,7 @@ import AddArticle from './components/AddArticle';
 import Users from './components/Users';
 import Errors from './components/Errors';
 import Topics from './components/Topics';
+import MobileOptions from './components/MobileOptions';
 
 
 
@@ -37,6 +38,7 @@ class App extends Component {
           <AddArticle user={this.state.user} topics={this.state.topics} path='/create_article' />
           <Users path="/users"/>
           <User user={this.state.user} path="/users/:username"/>
+          <MobileOptions path='mobile_options'/>
           <Errors default />
       </Router>
         </Auth>
