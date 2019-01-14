@@ -16,9 +16,9 @@ class AddTopic extends Component {
         <form onSubmit={this.handleSubmit}>
            <div className='add_topic'>
           <label className='label' htmlFor='topic_title'>Topic:</label>
-          <input type='text' className='input is-primary addTopic' id='slug' value={this.state.slug} onChange={this.handleChange} required />
+          <input type='text' placeholder='Give the topic a snappy title.' className='input is-primary addTopic' id='slug' value={this.state.slug} onChange={this.handleChange} required />
           <label className='label' htmlFor='description'>Description:</label>
-          <input type='text' id='description' className='input is-primary addTopic' value={this.state.description} onChange={this.handleChange} required />
+          <input type='text' id='description' placeholder='What is your topic about?' className='input is-primary addTopic' value={this.state.description} onChange={this.handleChange} required />
           </div>
           <button className='button is-primary is-large'>Add Topic</button>
         </form>

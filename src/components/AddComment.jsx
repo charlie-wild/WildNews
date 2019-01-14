@@ -14,7 +14,7 @@ class AddComment extends Component {
         {this.state.isLoading && <p>Posting comment...</p>}
         <form id='add_comment' onSubmit={this.handleSubmit}>
         <label htmlFor='comment'>Comment: </label>
-          <input type='text' id='comment' className='input is-primary is-rounded' required value={this.state.comment} onChange={this.handleChange}/>
+          <input type='text' id='comment' placeholder='What are your thoughts?' className='input is-primary is-rounded' required value={this.state.comment} onChange={this.handleChange}/>
           <button className='button is-primary add_comment_button'>Submit Comment</button>
         </form>
         {this.state.err && <p>Oh no! Something went wrong.</p>}

@@ -17,7 +17,7 @@ class AddArticle extends Component {
         <h2>Add An Article</h2>
           <form onSubmit={this.handleSubmit}>
             <label className='label' htmlFor='title'>Title:</label>
-            <input type='text' className='input is-primary title_input' id='title' required value={this.state.title} onChange={this.handleChange}/>
+            <input type='text' placeholder='Give your article a name.' className='input is-primary title_input' id='title' required value={this.state.title} onChange={this.handleChange}/>
             <label className='label' htmlFor='topic'>Select A Topic:</label>
             <select className='select is-primary' id='topic'>
             {topics.map(topic => {
@@ -27,7 +27,7 @@ class AddArticle extends Component {
             })}
             </select>
             <label className='label' htmlFor='body'>Body:</label>
-            <input className='text_area input is-primary' type='text' id='body' rows='10' required value={this.state.body} onChange={this.handleChange} />
+            <input className='text_area input is-primary' placeholder='Your article goes here.' type='text' id='body' rows='10' required value={this.state.body} onChange={this.handleChange} />
             <br/>
             <button className='button is-primary is-large submit_button'>Submit Article</button>
           </form>
