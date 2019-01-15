@@ -8,6 +8,11 @@
    padding-top: 2%;
 }
 
+.article_body {
+   margin-right: 3%;
+   margin-left: 3%;
+}
+
 .single_comment:nth-of-type(odd) {
    background-color: lightgray;
    margin-right: 3%;

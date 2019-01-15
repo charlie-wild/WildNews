@@ -47,7 +47,7 @@ class Article extends Component {
                   {moment(article.created_at).format("MMMM Do YYYY, h:mm:ss a")}
                 </p>
               </em>
-              <p>{article.body}</p>
+              <p className='article_body'>{article.body}</p>
             </article>
             <AddComment
               postNewComment={this.postNewComment}
