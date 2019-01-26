@@ -29,16 +29,16 @@ const Navbar = ({ topics, user }) => {
       </MediaQuery>
       <MediaQuery query="(min-device-width: 650px)">
         <div className="nav-links">
-          <button className="button is-primary">
+          <button className="button is-primary nav-center">
             <Link to="/users">All Users</Link>
           </button>
-          <button className="button is-primary">
+          <button className="button is-primary nav-center">
             <Link to="/topics">View Topics</Link>
           </button>
-          <button className="button is-primary">
+          <button className="button is-primary nav-center">
             <Link to="/create_topic">Create Topic</Link>
           </button>
-          <button className="button is-primary">
+          <button className="button is-primary nav-center">
             <Link to="/create_article">Create Article</Link>
           </button>
         </div>

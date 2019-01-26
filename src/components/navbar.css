@@ -7,6 +7,10 @@
   
 }
 
+.nav-center {
+  margin-top: 1.5%;
+}
+
 .nav > .nav-header {
   display: inline;
 }
