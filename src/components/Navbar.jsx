@@ -17,7 +17,7 @@ const Navbar = ({ topics, user }) => {
           </MediaQuery>
         </div>
       </div>
-      <div className="nav-btn">
+      <div className="nav-btn nav-center">
         <label htmlFor="nav-check">
           <span />
           <span />

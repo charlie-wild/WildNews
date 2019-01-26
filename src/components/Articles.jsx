@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link, navigate } from "@reach/router";
+import Loader from 'react-loader-spinner'
 import Votes from "./Votes";
 import moment from "moment";
 import * as api from "./api";
@@ -12,9 +13,9 @@ class Articles extends Component {
     page: 1
   };
   render() {
-    const { articles, page } = this.state;
+    const { articles, page, isLoading } = this.state;
     const { topic } = this.props;
-    if (articles.length === 0)
+    if (articles.length === 0 && !isLoading)
       return (
         <h2 className="empty_topic">
           There are no articles! Create one{" "}
@@ -25,7 +26,12 @@ class Articles extends Component {
       <div>
         {topic && <h2>{topic}</h2>}
         <ul>
-          {this.state.isLoading && <h2>Loading...</h2>}
+          {isLoading && <Loader
+            type="Puff"
+            color="#00BFFF"
+            height="100"
+            width="100"
+          />}
           {articles.map(article => {
             return (
               <Fragment key={article.article_id}>

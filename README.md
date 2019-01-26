@@ -30,5 +30,6 @@ Users are able to perform the following actions:
 - ```react-dom 16.7.0```
 - ```react-responsive 6.0.1```
 - ```react-scripts 2.1.3```
+- ```react-loader-spinner 2.3.0```
 
 

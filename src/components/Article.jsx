@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "@reach/router";
+import Loader from 'react-loader-spinner'
 import moment from "moment";
 import * as api from "./api";
 import "./article.css";
@@ -19,7 +20,12 @@ class Article extends Component {
   };
   render() {
     const { article, comments, page, isLoading } = this.state;
-    if (isLoading) return <h2>Loading...</h2>;
+    if (isLoading) return <Loader
+      type="Puff"
+      color="#00BFFF"
+      height="100"
+      width="100"
+    /> ;
     return (
       <section className="content_single">
         {this.state.err ? (
