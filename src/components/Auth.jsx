@@ -27,6 +27,7 @@ class Auth extends Component {
               type="text"
               className="input is-primary user_input"
               id="username"
+              placeholder="Please use the username weegembump to log in."
               required
               value={this.state.username}
               onChange={this.handleChange}
