@@ -16,7 +16,7 @@ const MobileOptions = () => {
         <Link to="/create_topic">
           <h2>Create Topic</h2>
         </Link>
-        <Link to="/create_Article">
+        <Link to="/create_article">
           <h2>Create Article</h2>
         </Link>
       </div>
